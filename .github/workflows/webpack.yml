@@ -1,14 +1,9 @@
 name: hello world
-on: workflow_dispatch
+on: push
+    
 jobs:
   build:
     runs-on:  ubuntu-latest
     steps:
       - name: build step
-        run: echo "demo build"
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: test step
-        run: echo "test demo"
+        run: echo "hello, ${(vars.MY_NAME)}"
